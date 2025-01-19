@@ -1,0 +1,30 @@
+# Node modules
+node_modules/
+
+# Build output
+build/
+out/
+public/build/
+
+# Environment variables
+.env
+.env.*
+
+# Logs and cache
+*.log
+.DS_Store
+.cache/
+
+# IDE and editor files
+.idea/
+.vscode/
+*.iml
+
+# Test output
+coverage/
+*.test.js
+*.spec.js
+
+# Package lock files
+package-lock.json
+yarn.lock
