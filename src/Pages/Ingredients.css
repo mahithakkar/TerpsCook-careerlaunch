@@ -1,0 +1,36 @@
+.App {
+    margin: auto;
+    font-family: sans-serif;
+    justify-content: center;
+    text-align: center; 
+    align-items: center; 
+  }
+
+  .Select {
+    display: 'flex';
+    margin: auto;
+    font-size: 20px;
+    width: 50%;
+    justify-content: center;
+    text-align: center; 
+    align-items: center; 
+  }
+  
+  .Submit{
+    padding: auto; 
+    display: flex;
+    text-align: center;
+    justify-content: center;
+    
+  }
+  
+  .Buttons{
+    height: '50px';
+    display: flex;
+    justify-content: center;
+    align-items: center; 
+    text-align: center;
+  }
+  
+  
+  
