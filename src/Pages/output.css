@@ -1,0 +1,21 @@
+.output-container {
+   margin: auto;
+   font-family: sans-serif;
+   justify-content: center;
+   text-align: center; 
+   align-items: center; 
+ }
+ 
+ 
+ button {
+    background: D9D9D9;
+    color: black;
+    padding: 10px;
+    border-radius: 5px;
+    cursor: pointer;
+    border: 0;
+    font-size: 17px;
+    margin-left: 10px;
+ }
+
+ 
