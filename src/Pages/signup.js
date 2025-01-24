@@ -23,7 +23,7 @@ const Signup = () => {
     const db = getFirestore(app);
 
     let user;
-    // 1) Create user in Firebase Auth
+    
     try {
       const userCredential = await createUserWithEmailAndPassword(auth, email, password);
       user = userCredential.user;
@@ -31,12 +31,10 @@ const Signup = () => {
     } catch (err) {
       console.error("Error creating user in Auth:", err.message);
       setError("Failed to create account. " + err.message);
-      return; // Stop here if Auth creation failed
+      return; 
     }
 
-    // 2) Now store user info in Firestore
     try {
-      // If selected is "" then default to "None"
       const dietaryRestrictionToSave = selected || "None";
       await setDoc(doc(db, "users", user.uid), {
         email,
