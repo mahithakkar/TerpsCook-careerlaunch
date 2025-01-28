@@ -57,7 +57,7 @@ const Ingredients = () => {
 
  // Function to handle recipe generation
  const handleGenerateRecipe = async () => {
-  console.log("test");
+  //console.log("test");
    if (!mealType || selectedIngredients.length === 0) {
      alert("Please select a meal type and at least one ingredient.");
      return;

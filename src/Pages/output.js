@@ -13,7 +13,7 @@ const Output = () => {
    return (
        <div className = "output-container"  style={{display: 'block', boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.2)', backgroundColor: 'rgb(235, 242, 251)', width: '70%', borderRadius: '10px'}}>
            <h1 style={{marginTop: '60px', padding: '30px'}}>Recipes:</h1>
-           <p>{recipe}</p>
+           <p>"Add recipe here"</p>
            <button style={{boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.2)', border: '1px solid black',}}>Save this recipe</button>
            <button style={{boxShadow: '0px 4px 4px rgba(0, 0, 0, 0.2)', border: '1px solid black', backgroundColor: 'lightgreen'}}>Generate new recipe</button>
            <p>{'\n'}</p>
