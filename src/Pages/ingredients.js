@@ -6,8 +6,36 @@ import { FaStar, FaHome, FaInfoCircle } from "react-icons/fa";
 import { Link, useNavigate } from 'react-router-dom';
 import { IoFastFoodOutline } from "react-icons/io5";
 import './App.css';
-import axios from "axios";
+//import axios from "axios";
 
+import { Configuration, OpenAIApi } from "azure-openai";
+
+const openai = new OpenAIApi(
+    new Configuration({
+        azure: {
+            apiKey: "LuKShaWecRt6LY6vR3o5x66fZcL5NWkAzrHxJ9zejA5Xfc1aL2HQJQQJ99BAACHYHv6XJ3w3AAAAACOGrjIV", 
+            endpoint: "https://msavy-m6b2x8as-eastus2.openai.azure.com/",
+            deploymentName: "gpt-4",
+        }
+    }),
+);
+
+/*
+import os  
+import base64
+from openai import AzureOpenAI  
+
+endpoint = os.getenv("ENDPOINT_URL", "https://msavy-m6b2x8as-eastus2.openai.azure.com/")  
+deployment = os.getenv("DEPLOYMENT_NAME", "gpt-4")  
+subscription_key = os.getenv("AZURE_OPENAI_API_KEY", "LuKShaWecRt6LY6vR3o5x66fZcL5NWkAzrHxJ9zejA5Xfc1aL2HQJQQJ99BAACHYHv6XJ3w3AAAAACOGrjIV")  
+
+# Initialize Azure OpenAI Service client with key-based authentication    
+client = AzureOpenAI(  
+    azure_endpoint=endpoint,  
+    api_key=subscription_key,  
+    api_version="2024-05-01-preview",
+)
+*/
 
 const Ingredients = () => {
  const [mealType, setMealType] = useState(null); // Meal type state
@@ -29,19 +57,34 @@ const Ingredients = () => {
 
  // Function to handle recipe generation
  const handleGenerateRecipe = async () => {
+  //console.log("test");
    if (!mealType || selectedIngredients.length === 0) {
      alert("Please select a meal type and at least one ingredient.");
      return;
    }
     const ingredients = selectedIngredients.map(item => item.value);
+    const prompt = `Generate a recipe for a ${mealType.label} using the following ingredients: ${ingredients.join(", ")}`;
+    console.log("Generated prompt:", prompt);
     try {
-     const response = await axios.post("http://localhost:3001/api/generate-recipe", {
-       mealType: mealType.label,
-       ingredients,
-     });
-      const recipe = response.data.recipe;
-     console.log("Generated Recipe:", recipe);
-     alert(`Recipe Generated: \n${recipe}`);
+     // Make the request to Azure OpenAI API
+     const response = await openai.createChatCompletion({
+      model: '2024-05-01-preview',
+      messages: [
+        { role: 'system', content: 'You are a helpful assistant.' },
+        { role: 'user', content: `Generate a recipe based on the following ingredients: ${selectedIngredients.join(', ')}.` },
+      ],
+    });
+     /*
+     const response = await openai.createCompletion({
+      model: "gpt-4",
+      prompt: prompt,
+      max_tokens: 300, // Adjust based on your desired output length
+      temperature: 0.7,
+    });*/
+    const recipe = response.data.choices[0].text.trim();
+    console.log("Generated Recipe:", recipe);
+    // Navigate to the Output page with the generated recipe
+    navigate("/output", { state: { recipe } });
    } catch (error) {
      console.error("Error generating recipe:", error);
      alert("Failed to generate a recipe. Please try again.");
