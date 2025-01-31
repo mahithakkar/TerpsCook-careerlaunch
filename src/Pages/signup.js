@@ -9,7 +9,7 @@ import "./signup.css";
 const Signup = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [selected, setSelected] = useState(""); // For dietary restriction dropdown
+  const [selected, setSelected] = useState(""); 
   const [error, setError] = useState("");
   const [success, setSuccess] = useState("");
   const navigate = useNavigate();

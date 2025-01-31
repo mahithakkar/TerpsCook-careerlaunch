@@ -1,10 +1,9 @@
-
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom"; // Import useNavigate
+import { Link, useNavigate } from "react-router-dom"; 
 import { IoFastFoodOutline } from "react-icons/io5";
 import { FaInfoCircle } from "react-icons/fa";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth"; // Import Firebase auth
-import { app } from "./firebaseConfig"; // Import your Firebase config file
+import { getAuth, signInWithEmailAndPassword } from "firebase/auth"; 
+import { app } from "./firebaseConfig"; 
 import "./login.css";
 
 
@@ -14,7 +13,7 @@ const Login = () => {
  const [error, setError] = useState("");
 
 
- const navigate = useNavigate(); // Initialize navigate hook
+ const navigate = useNavigate(); 
 
 
  const handleLogin = async (e) => {
@@ -25,10 +24,10 @@ const Login = () => {
    try {
      const userCredential = await signInWithEmailAndPassword(auth, email, password);
      console.log("User logged in:", userCredential.user);
-     setError(""); // Clear any previous errors
+     setError(""); 
 
 
-     // Redirect to the Ingredients page
+
      navigate("/ingredients");
    } catch (err) {
      console.error(err.message);
@@ -134,5 +133,3 @@ const Login = () => {
 
 
 export default Login;
-
-
