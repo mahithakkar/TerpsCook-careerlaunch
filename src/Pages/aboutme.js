@@ -28,9 +28,9 @@ const AboutMe = () => {
       {/* App Description */}
       <h1 style={{marginTop: '60px', padding: '30px'}}>About TerpsCook<IoFastFoodOutline style={{marginLeft: '10px'}} /></h1>
       <p className="description" style={{padding: '20px'}}>
-        TerpsCook is designed to make cooking simple and creative. Using AI, the app helps you 
-        generate recipes based on the ingredients you already have. Whether you're trying to 
-        reduce waste or discover new dishes, TerpsCook is here to inspire your next meal.
+        TerpsCook is designed to make cooking simple and creative. This website helps you 
+        generate recipes based on your dietary restriction. Whether you're following a specific diet, 
+        managing food allergies, or just looking for new meal ideas, TerpsCook is here to inspire your next meal.
       </p>
 
       {/* Team Section */}
