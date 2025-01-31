@@ -79,6 +79,8 @@ const Signup = () => {
             onChange={(e) => setEmail(e.target.value)}
             style={{ boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.2)" }}
             required
+            placeholder="example@gmail.com"
+
           />
         </label>
         <label>
@@ -103,9 +105,10 @@ const Signup = () => {
             onChange={handleChange}
             style={{
               boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.2)",
-              width: "100%",
+              width: "97%",
               padding: "5px",
               borderRadius: "5px",
+              
             }}
             required
           >
@@ -120,11 +123,13 @@ const Signup = () => {
         <button
           type="submit"
           style={{
-            marginTop: "20px",
-            marginBottom: "30px",
+            marginTop: "30px",
+            marginBottom: "50px",
             boxShadow: "0px 4px 4px rgba(0, 0, 0, 0.2)",
-            border: "1px solid black",
+            border: "2px solid black",
             width: "200px",
+            backgroundImage: 'linear-gradient(to right,rgb(165, 233, 239),rgb(105, 198, 255))',
+            
           }}
         >
           Submit

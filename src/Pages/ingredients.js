@@ -87,7 +87,7 @@ const Ingredients = () => {
         TerpsCook <IoFastFoodOutline style={{ marginLeft: "10px" }} />
       </h1>
 
-      <h2>Your Dietary Restriction: {dietRestriction}</h2>
+      <h2>Your Dietary Restriction: <h3 style={{color: 'rgba(17, 171, 40, 0.89)'}}>{dietRestriction}</h3> </h2>
       <h3 style={{ marginTop: "20px" }}>Here are some recipes you might enjoy:</h3>
 
       {recipes.length === 0 ? (
